@@ -27,9 +27,17 @@ function payBasket(userAccount, basket) {
   if (transactionAllowed(userAccount, basket.totalPrice)) {
     userAccount.balance = userAccount.balance - basket.totalPrice;
     console.log("Paiement du panier réussi");
+    return true;
   } else {
     console.log("Paiement du panier échoué");
+    return false;
   }
 }
 
-module.exports = { Basket, addToBasket, removeFromBasket, payBasket };
+module.exports = {
+  Basket,
+  addToBasket,
+  removeFromBasket,
+  transactionAllowed,
+  payBasket,
+};
